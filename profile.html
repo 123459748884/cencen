@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lofter - 我的</title>
+  <link rel="stylesheet" href="styles.css">
+<style>
+    
+
+    /* 设置表单样式 */
+    form {
+      max-width: 400px; /* 设置表单最大宽度 */
+      margin: 0 auto; /* 居中对齐表单 */
+    }
+
+    /* 设置标签样式 */
+    label {
+      display: block; /* 将标签显示为块级元素 */
+      margin-bottom: 10px; /* 设置标签之间的下边距 */
+    }
+
+    /* 设置文本输入框和密码输入框样式 */
+    input[type="text"],
+    input[type="password"] {
+      width: 100%; /* 设置输入框宽度为100% */
+      padding: 8px; /* 设置输入框内边距 */
+      margin-bottom: 10px; /* 设置输入框之间的下边距 */
+    }
+
+    /* 设置提交按钮样式 */
+    input[type="submit"] {
+      width: 100%; /* 设置提交按钮宽度为100% */
+      padding: 10px; /* 设置提交按钮内边距 */
+      background-color: #4CAF50; /* 设置提交按钮背景颜色 */
+      color: #fff; /* 设置提交按钮文字颜色 */
+      border: none; /* 移除提交按钮边框 */
+      cursor: pointer; /* 设置鼠标悬停样式为手型 */
+    }
+
+    /* 设置提交按钮鼠标悬停样式 */
+    input[type="submit"]:hover {
+      background-color: #45a049; /* 设置提交按钮悬停时的背景颜色 */
+    }
+  </style>
+  <script>
+    function validateForm() {
+      // 获取表单中的用户名、密码和邮箱的值
+      var username = document.forms["myForm"]["username"].value;
+      var password = document.forms["myForm"]["password"].value;
+      var email = document.forms["myForm"]["email"].value;
+
+      // 检查用户名是否为空
+      if (username == "") {
+        alert("请输入用户名");
+        return false;
+      }
+
+      // 检查密码是否为空
+      if (password == "") {
+        alert("请输入密码");
+        return false;
+      }
+
+      // 检查邮箱是否为空
+      if (email == "") {
+        alert("请输入邮箱");
+        return false;
+      }
+
+      // 使用正则表达式验证邮箱格式
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("请输入有效的邮箱");
+        return false;
+      }
+
+      // 在这里可以添加其他验证逻辑
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="discover.html">发现</a></li>
+        <li><a href="follow.html">关注</a></li>
+        <li><a href="profile.html">我的</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h1>个人中心</h1> <!-- 标题 -->
+  </section>
+ 
+  <form name="myForm" onsubmit="return validateForm()" method="post">
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="email">邮箱:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <input type="submit" value="登录">
+    <input type="button" value="注册" onclick="alert('注册功能暂未开放')">
+  </form>
+
+  <footer>
+    <a href="contact.html">隐私政策</a> <!-- 页脚链接 -->
+    <a href="contact.html">服务条款</a> <!-- 页脚链接 -->
+  </footer>
+</body>
+</html>
